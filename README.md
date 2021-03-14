@@ -1,1 +1,1 @@
-# rx-store
+# React Store with rxjs & hooks

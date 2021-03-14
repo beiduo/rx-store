@@ -36,7 +36,7 @@ export default class StoreClass<T> {
     }
 
     /** set state value to initial */
-    public clear = () => {
+    public reset = () => {
         this.state = this.initialState
         this.subject.next(this.state)
     }

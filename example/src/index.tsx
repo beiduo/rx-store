@@ -1,8 +1,7 @@
 import React, {useEffect, useCallback} from 'react';
 import { render } from 'react-dom';
 
-import useStore from '../../src/hooks/useStore';
-import useSubscriptionStack from '../../src/hooks/useSubscriptionStack';
+import {useStore, useSubscriptionStack} from 'rx-hook-store';
 
 import store from './store';
 import { WelcomeState } from './store/Welcome';

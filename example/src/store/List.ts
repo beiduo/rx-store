@@ -1,4 +1,4 @@
-import StoreClass from '../../../src/store'
+import StoreClass from 'rx-hook-store';
 import { RequestFunc } from '../createService'
 import { listService } from '../service'
 

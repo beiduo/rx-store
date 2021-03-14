@@ -40,6 +40,9 @@ module.exports = {
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.js', '.jsx', '.json'],
+        alias: {
+            'rx-hook-store': path.resolve(__dirname, './src'),
+        },
     },
     plugins: [htmlWebpackPlugin],
     devServer: {

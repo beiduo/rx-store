@@ -23,9 +23,11 @@
         "jsx": "react",
         "baseUrl": "./",
         "paths": {
+            "rx-hook-store": ["./src"],
             "*": [
                 "types/*"
-            ]
+            ],
+            
         }
         // "suppressImplicitAnyIndexErrors": true, //阻止对缺少索引签名的索引对象报错
     },

@@ -1,6 +1,6 @@
 # React Store with rxjs & hooks
 
-this module provides a global store management for react 16+, depended on RxJs.
+this module provides a global store management for react 16+, depends on RxJs.
 
 also provide two useful hooks **useSubscriptionStack** and **useManualSubscription** to manage rx subscriptions within function components.
 
@@ -45,7 +45,9 @@ also provide two useful hooks **useSubscriptionStack** and **useManualSubscripti
 
 ## Demostration
 
-clone this repository, install, and run ```npm start```
+clone this repository
+```git clone https://github.com/beiduo/rx-store.git```
+install, and run ```npm start```
 
 ## Examples
 
@@ -121,7 +123,9 @@ example:
         };
 
         useEffect(() => {
-            handleFetch.cancel();
+            return () => {
+                handleFetch.cancel();
+            }
         }, []);
 
         return (

@@ -1,5 +1,9 @@
 # React Store with rxjs & hooks
 
+this module provides a global store management for react 16+, depended on RxJs.
+
+also provide two useful hooks **useSubscriptionStack** and **useManualSubscription** to manage rx subscriptions within function components.
+
 ## Installation
 
 ```npm i rx-hook-store```
@@ -33,7 +37,7 @@
     import {useStore} from 'rx-hook-store'
 
     function NewComponent () {
-        const newStore = useStore(store.newStore)
+        const newStore = useStore<NewStoreState>(store.newStore)
 
         return <>{newStore.anystuff}</>
     }
@@ -64,6 +68,64 @@ although, it's highly recommended to follow the pattern inside ```example/src/st
 
 ### Store Instance
 
+a store instance provides a value, and a variety of methods to read and operate that value.
 
+## Hooks
 
+### useStore
 
+this hook connects a store with a function component, and return the current value of that store.
+
+### useSubscriptionStack
+
+this hook returns a function, this function can receive a subscription as its parameter, this subscrition can be automatically cancelled.
+
+the most common usage is to automatically cancel subscriptions (such as ajax request, setTimeout, etc) while leaving the interface.
+
+example:
+
+    import {useSubscriptionStack} from 'rx-hook-store';
+
+    const ExampleComponent = () => {
+        const newStore = useStore<NewStoreState>(store.newStore)
+
+        const addSubscription = useSubscriptionStack();
+
+        const refresh = () => {
+            addSubscription(store.newStore.fetch());
+        };
+
+        return (
+            <>
+            </>
+        )
+    }
+
+### useManualSubscription
+
+this hook returns an object with two methods, **"start"** and **"cancel"**, "start" can receive a subscription as its parameter, if repeatedly call this method, it will cancel previous subscription, then process the new subscribe. "cancel" will just cancel the subscription.
+
+it might be useful in complicated scenes.
+
+example:
+
+    import {useManualSubscription} from 'rx-hook-store';
+
+    const ExampleComponent = () => {
+        const newStore = useStore<NewStoreState>(store.newStore)
+
+        const handleFetch = useManualSubscription();
+
+        const refresh = () => {
+            handleFetch.start(store.newStore.fetch());
+        };
+
+        useEffect(() => {
+            handleFetch.cancel();
+        }, []);
+
+        return (
+            <>
+            </>
+        )
+    }

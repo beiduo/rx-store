@@ -43,7 +43,7 @@ also provide two useful hooks **useSubscriptionStack** and **useManualSubscripti
     }
 
 
-## Demostration
+## Demonstration
 
 clone this repository
 ```git clone https://github.com/beiduo/rx-store.git```

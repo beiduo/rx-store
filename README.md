@@ -43,7 +43,7 @@ also provide two useful hooks **useSubscriptionStack** and **useManualSubscripti
     }
 
 
-## Demostration
+## Demonstration
 
 clone this repository, install, and run ```npm start```
 

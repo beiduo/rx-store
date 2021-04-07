@@ -39,7 +39,7 @@ also provide two useful hooks **useSubscriptionStack** and **useManualSubscripti
     function NewComponent () {
         const newStore = useStore<NewStoreState>(store.newStore)
 
-        return <>{newStore.anystuff}</>
+        return (<>{newStore.anystuff}</>)
     }
 
 
